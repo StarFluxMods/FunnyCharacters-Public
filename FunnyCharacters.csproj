@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net472</TargetFramework>
+        <AssemblyName>$(MSBuildProjectName)</AssemblyName>
+        <AssetBundlePath>UnityProject - FunnyCharacters\content\mod.assets</AssetBundlePath>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Yariazen.PlateUp.ModBuildUtilities" Version="1.11.5"/>
+        <PackageReference Include="Krafs.Publicizer" Version="2.2.1"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Publicize Include="Kitchen.Common:Kitchen.PlayerCosmeticSubview+AttachmentPoint"/>
+        <Publicize Include="Kitchen.Common:Kitchen.PlayerCosmeticSubview+AttachedCosmetic"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Remove="UnityProject - FunnyCharacters\**"/>
+        <None Remove="UnityProject - FunnyCharacters\**"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Folder Condition="Exists('Changelogs')" Include="Changelogs\"/>
+        <Folder Condition="Exists('Changelogs\Github')" Include="Changelogs\Github"/>
+        <Folder Condition="Exists('Changelogs\Workshop')" Include="Changelogs\Workshop"/>
+    </ItemGroup>
+</Project>
